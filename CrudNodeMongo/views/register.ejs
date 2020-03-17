@@ -1,0 +1,56 @@
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <style>
+        h1,
+        h3 {
+            text-align: center;
+        }
+    </style>
+</head>
+
+
+<body>
+
+    <form class=" container card" method="post" action="/register">
+        <h1 style="position:relative;">
+            <%= title %>
+        </h1>
+
+        <input type="email" name="email" placeholder="insert your email" required>
+        <hr>
+        <input type="name" name="username" placeholder="tape your username" required>
+        <hr>
+        <input type="password" name="pass" placeholder="insert your password" id="pass1" required>
+        <hr>
+        <input type="password" name="repass" placeholder="retape your password" id="pass2" required>
+        <hr>
+        <input type="submit" name="register" onclick="verif()" class="btn btn-primary" style="position:center;" value="register">
+        <a href="/login" class="btn btn-link" id="link">Already have an account</a>
+
+    </form>
+    <script>
+        const pass1 = document.getElementById("pass1").value;
+        const pass2 = document.getElementById("pass2").value;
+
+        var node = document.createElement("p");
+
+        function verif() {
+            if (document.getElementById("pass1").value === document.getElementById("pass2").value) {
+                console.log("password verifie");
+            } else {
+                document.getElementById("link").appendChild(node).innerHTML = "wrong password";
+                console.log("wrong retaps");
+                return;
+            }
+        }
+    </script>
+</body>
+
+</html>
